@@ -1,60 +1,40 @@
 // import logo from './logo.svg';
 import './App.css';
 
-
-
-    function Header(){
-      return (
-
-        <section><h1>Hello World!</h1></section>
-        
-
-      );
-
-
-    }
-
-    function Main (){
-      return (
-        <section><p>This is my second React component</p></section>
-        
-
-      );
-      
-
-    }
-
-    
-function App() {
+function Header() {
   return (
-    <div className="App">
-      <Header/>
-      <Main/>
+    <section><h1>Hello World!</h1></section>
+  );
+}
 
-    </div>
+// pass in props
+function Main(props) {
+  console.log(props);
+  return (
+    <section>
+      <p>This is my second React component</p>
+      <p>My name is {props.name}!</p>
+    </section>
+  );
+}
+
+function Footer (props) {
+  return (
+    <section><p>Copyright {props.year}</p></section>
   );
 }
 
 
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
+// Main function supports the name property (props)
+function App() {
+  return (
+    <div className="App">
+      <Header />
+      <Main name="Walter" />
+      <Footer year={new Date().getFullYear()}/>
+    </div>
+  );
+}
+
 
 export default App;
