@@ -13,7 +13,13 @@ function Main(props) {
   return (
     <section>
       <p>This is my second React component</p>
-      <p>My name is {props.name}!</p>
+      <p>Here is {props.name}'s Menu:</p>
+      
+      <ul style={{ textAlign: "center"}}>
+        {props.dishes.map((dish) => <li>{dish}</li>)}
+      </ul>
+
+
     </section>
   );
 }
@@ -24,13 +30,24 @@ function Footer (props) {
   );
 }
 
+const dishes = [
+
+    "Macraroni and cheese",
+    "Salmon",
+    "Tofu and veg",
+    "Bacon and cabbage"
+
+]
+
+dishes.map((dish) => console.log(dish))
+
 
 // Main function supports the name property (props)
 function App() {
   return (
     <div className="App">
       <Header />
-      <Main name="Walter" />
+      <Main name="Walter" dishes={dishes}/>
       <Footer year={new Date().getFullYear()}/>
     </div>
   );
