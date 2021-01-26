@@ -1,4 +1,4 @@
-// import logo from './logo.svg';
+import logo from './logo.svg';
 import './App.css';
 
 function Header() {
@@ -7,15 +7,14 @@ function Header() {
   );
 }
 
-// pass in props
 function Main(props) {
   console.log(props);
   return (
     <section>
       <p>This is my second React component</p>
       <p>Here is {props.name}'s Menu:</p>
-      
-      <ul style={{ textAlign: "center"}}>
+
+      <ul style={{ textAlign: "center" }}>
         {props.dishes.map((dish) => <li>{dish}</li>)}
       </ul>
 
@@ -24,7 +23,10 @@ function Main(props) {
   );
 }
 
-function Footer (props) {
+
+
+
+function Footer(props) {
   return (
     <section><p>Copyright {props.year}</p></section>
   );
@@ -32,23 +34,39 @@ function Footer (props) {
 
 const dishes = [
 
-    "Macraroni and cheese",
-    "Salmon",
-    "Tofu and veg",
-    "Bacon and cabbage"
+  "Macraroni and cheese",
+  "Salmon",
+  "Tofu and veg",
+  "Bacon and cabbage"
 
 ]
+// dishes.map((dish) => console.log(dish))
 
-dishes.map((dish) => console.log(dish))
+const numbers = [1, 2, 3, 4, 5];
+const listItems = numbers.map((number) =>
+  <li>{number}</li>
+);
+
+function Secondary(props) {
+  return (
+    
+    <section>
+      
+    <p>This is secondary component</p>
+    <ul>{listItems}</ul>
+
+    </section>
+  );
+}
 
 
-// Main function supports the name property (props)
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Main name="Walter" dishes={dishes}/>
-      <Footer year={new Date().getFullYear()}/>
+      {/* <Header /> */}
+      {/* <Main name="Walter" dishes={dishes} /> */}
+      {/* <Footer year={new Date().getFullYear()} /> */}
+      <Secondary />
     </div>
   );
 }
