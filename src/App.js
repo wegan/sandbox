@@ -1,30 +1,25 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 
-function Header() {
-  return (
-    <section><h1>Hello World!</h1></section>
-  );
-}
-
 function Main(props) {
-  console.log(props);
   return (
     <section>
-      <p>This is my second React component</p>
-      <p>Here is {props.name}'s Menu:</p>
+      <h2>Here is {props.name}'s Menu:</h2>
+      {/* Initial implementation */}
+      {/* {props.menu.map((dish) => <p>{dish}</p>)} */}
 
-      <ul style={{ textAlign: "center" }}>
-        {props.dishes.map((dish) => <li>{dish}</li>)}
-      </ul>
+      {/* Hacky JavaScript implemenation by Eve. Not recommended by React */}
+      {/* {props.menu.map((dish, i) => <p key={i}>{dish}</p>)} */}
+
+      {/* Adjust dish arry to return object not string */}
+      {/* Map over array of objects and write a paragraph element for each one */}
+      {props.menu.map((dishObjects) => <p key={dishObjects.id}>{dishObjects.title}</p>)}
+
 
 
     </section>
   );
 }
-
-
-
 
 function Footer(props) {
   return (
@@ -33,14 +28,16 @@ function Footer(props) {
 }
 
 const dishes = [
-
   "Macraroni and cheese",
   "Salmon",
   "Tofu and veg",
-  "Bacon and cabbage"
-
+  "Bacon and cabbage",
+  "Corn Beef"
 ]
 // dishes.map((dish) => console.log(dish))
+// Write a transformation function that maps over dishes and returns an object
+const dishObjects = dishes.map((dish, i) => ({id: i, title: dish}))
+console.log(dishObjects)
 
 const numbers = [1, 2, 3, 4, 5];
 const listItems = numbers.map((number) =>
@@ -49,27 +46,22 @@ const listItems = numbers.map((number) =>
 
 function Secondary(props) {
   return (
-    
     <section>
-      
-    <p>This is secondary component</p>
-    <ul>{listItems}</ul>
-
+      <p>This is secondary component</p>
+      <ul>{listItems}</ul>
     </section>
   );
 }
-
 
 function App() {
   return (
     <div className="App">
       {/* <Header /> */}
-      {/* <Main name="Walter" dishes={dishes} /> */}
-      {/* <Footer year={new Date().getFullYear()} /> */}
-      <Secondary />
+      <Main name="Tuesday" menu={dishObjects} />
+      <Footer year={new Date().getFullYear()} />
+      {/* <Secondary /> */}
     </div>
   );
 }
-
 
 export default App;
