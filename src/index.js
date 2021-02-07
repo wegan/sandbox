@@ -4,9 +4,23 @@ import './index.css';
 import App from './App';
 // import reportWebVitals from './reportWebVitals';
 
+function ComponentFragment(){
+    return <h1>This is a component, or a component fragment</h1>
+
+}
+
 ReactDOM.render(
      
-    <App />,
+    // <App />,
+    
+    // <App />,
+    // <ComponentFragment />,
+
+    <div>
+        <App />
+    <ComponentFragment />
+
+    </div>,
     
   document.getElementById('root')
 );

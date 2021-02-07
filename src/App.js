@@ -17,13 +17,25 @@ function Main(props) {
 
 
 
+
     </section>
   );
 }
 
 function Footer(props) {
   return (
-    <section><p>Copyright {props.year}</p></section>
+
+
+    <section><p>Copyright {props.year}</p>
+    
+    {/* <img src={logo} style="width:500px;height:600px;"></img> */}
+
+    {/* <img src={logo} height={200} width={200} alt={"This is the React icon"}></img> */}
+
+    <img src="https://avatars.githubusercontent.com/u/1349145" height={100} width={100} alt={"This is the React icon"}></img>
+
+    </section>
+    
   );
 }
 
