@@ -2,69 +2,39 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# Add components to an Oracle JET web app
 
-In the project directory, you can run:
+## Introduction
 
-### `npm start`
+This tutorial shows you how to add Oracle JavaScript Extension Toolkit (Oracle JET) components to the navdrawer starter template of your Oracle JET web app.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Oracle JET is a development toolkit that you use to build client-side web apps. To create your web app, use the Oracle JET Cookbook to locate the component samples that illustrate the specific functionality you want to add to your app. The Oracle JET Cookbook also provides instructions that you can follow to support behavior specific to the components.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Objectives
 
-### `npm test`
+On completion of this tutorial, you will have learned how to use the Oracle JET Cookbook to add Oracle JET Select Single and Chart components to the Dashboard tab of your web app. You will also learn how to connect these two components to add interactivity between them.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Prerequisites
 
-### `npm run build`
+- A development environment set up to create Oracle JET applications, with the JavaScript runtime, Node.js, and the Oracle JET release 8.0.0, or later, command-line interface installed
+- Completion of the previous tutorials in this learning path, so that you have created the JET_Web_Application folder
+- Access to the [Oracle JET Cookbook](https://www.oracle.com/pls/topic/lookup?ctx=jetlatest&id=jet-cookbook)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Task 1: Add a Select Single Component
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Navigate to the `/JET_Web_Application/src/ts/views` directory and open the `dashboard.html` file in an editor.
+2. Within the HTML `div` element of the Dashboard Content Area, add an `oj-label` custom HTML element and an `oj-select-single` element.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```javascript
+   <h1>Dashboard Content Area</h1>
+     <div>
+       <oj-label for="basicSelect">Select Chart:</oj-label>
+       <oj-select-single id="basicSelect"
+                         style="max-width:20em"
+                         data="[[chartTypes]]"
+                         value="{{val}}">
+       </oj-select-single>
+     </div>
+   ```
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+   The square brackets surrounding the `chartTypes` observable on the `data` attribute means the value can be read but not updated by the component. The curly braces surrounding the `val` observable on the value attribute means the value can be read and updated by the component. Thus, square brackets surrounding an observable define a one-way binding, whereas curly braces surrounding an observable define a two-way binding.
